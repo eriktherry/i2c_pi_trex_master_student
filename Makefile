@@ -1,6 +1,7 @@
 # The compiler
 BINPATH=/home/nico/buildroot/output/host/usr/bin/arm-buildroot-linux-uclibcgnueabi-
-CC=$(BINPATH)g++
+#CC=$(BINPATH)g++
+CC=g++
 
 # Compiler flags
 CFLAGS  = -Wall
