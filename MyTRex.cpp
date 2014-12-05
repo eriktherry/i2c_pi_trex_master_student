@@ -1,4 +1,4 @@
-#include "MyTRex.cpp"
+#include "MyTRex.h"
 
 namespace TRexLib{
 

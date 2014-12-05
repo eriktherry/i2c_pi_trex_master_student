@@ -1,11 +1,14 @@
-#include "MyTRex.h"
+#include "TRex.h"
+#include "MyStatusDataPacket.h"
+#include "DataPacket.h"
+#include "MyI2C.h"
 
-#ifndef TREX_H
-#define TREX_H
+#ifndef MY_TREX_H
+#define MY_TREX_H
 
 namespace TRexLib{
 
-    class TRex{
+    class MyTRex{
         public:
             /*
              * Constructor
@@ -13,7 +16,7 @@ namespace TRexLib{
              * @i2c the I2C representing the bus on which the slave is connected.
              * @i2cAddress the address of the slave
              */
-            TRex(I2C* i2c, int i2cAddress);
+            TRex(I2C * i2c, int i2cAddress);
 
             /*
              * Read the status of the TRex controller.
@@ -22,7 +25,7 @@ namespace TRexLib{
              *
              * @return true if the read action was successful
              */
-            bool readStatus(StatusDataPacket * status) = 0;
+            bool readStatus(MyStatusDataPacket * status);
 
             /*
              * Write command to the TRex controller.
@@ -31,7 +34,7 @@ namespace TRexLib{
              *
              * @return true if the write action was successful
              */
-            bool writeCommand(CommandDataPacket * command) = 0; 
+            bool writeCommand(CommandDataPacket * command); 
     };
 }
 
