@@ -17,6 +17,9 @@ I2C.o: I2C.cpp
 MyI2C.o: MyI2C.cpp
 	$(CC) -c $(CFLAGS) MyI2C.cpp
 
+JsonClass.o: JsonClass.cpp
+	$(CC) -c $(CFLAGS) JsonClass.cpp
+
 wait.o: wait.cpp
 	$(CC) -c $(CFLAGS) wait.cpp
 
@@ -26,8 +29,14 @@ Serial.o: Serial.cpp
 StatusDataPacket.o: StatusDataPacket.cpp
 	$(CC) -c $(CFLAGS) StatusDataPacket.cpp
 
+MyStatusDataPacket.o: MyStatusDataPacket.cpp
+	$(CC) -c $(CFLAGS) MyStatusDataPacket.cpp
+
 TRex.o: TRex.cpp
 	$(CC) -c $(CFLAGS) TRex.cpp
+
+MyTRex.o: MyTRex
+	$(CC) -c $(CFLAGS) MyTRex.cpp
 
 main.o: main.cpp
 	$(CC) -c $(CFLAGS) main.cpp
