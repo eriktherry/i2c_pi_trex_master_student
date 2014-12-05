@@ -9,7 +9,7 @@ CFLAGS  = -Wall
 
 
 all: clean I2C.o MyI2C.o wait.o Serial.o StatusDataPacket.o TRex.o main.o MyTRex.o MyStatusDataPacket.o JsonClass.o
-	$(CC) $(CFLAGS) I2C.o MyI2C.o wait.o Serial.o StatusDataPacket.o TRex.o main.o -o i2c_pi_trex_master
+	$(CC) $(CFLAGS) I2C.o MyI2C.o wait.o Serial.o StatusDataPacket.o TRex.o main.o -o MyTRex.o MyStatusDataPacket.o JsonClass.o i2c_pi_trex_master
 
 I2C.o: I2C.cpp
 	$(CC) -c $(CFLAGS) I2C.cpp
