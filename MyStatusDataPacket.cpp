@@ -12,9 +12,10 @@ namespace TRexLib{
 	}
 
     void fromTRex(char * data){		//haald de informatie op en steekt ze in char *data
-    	this->setStartByte(char start);
-    	this->setErrorFlags(char error);
-    	this->setBatteryVoltage(double voltage);
+    	
+    	this->setStartByte(data[0]);
+    	this->setErrorFlags(data[1]);
+    	this->setBatteryVoltage(data[2]*256 + data[3]);
     	this->setMotorCurrent(Side side, double current);
     	this->setEncoderCount(Side side, int count);
     	this->setAcceleroMeter(AcceleroMeter accelero);
@@ -22,7 +23,7 @@ namespace TRexLib{
 
 	}
 
-	std::string toJSON(void){
+	std::string toJSON(void){		//haald informatie uit *data en steekt ze json string
 
 	}
 
