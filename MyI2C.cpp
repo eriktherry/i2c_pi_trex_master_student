@@ -1,4 +1,4 @@
-#include "I2C.h"
+#include "MyI2C.h"
 #include <string.h>
 #include <linux/i2c-dev.h>
 #include <sys/ioctl.h>
