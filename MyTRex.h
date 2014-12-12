@@ -1,14 +1,16 @@
 #include "TRex.h"
 #include "MyStatusDataPacket.h"
+#include "StatusDataPacket.h"
 #include "DataPacket.h"
 #include "MyI2C.h"
+#include "I2C.h"
 
 #ifndef MY_TREX_H
 #define MY_TREX_H
 
 namespace TRexLib{
 
-    class MyTRex{
+    class MyTRex: public TRex{
         public:
             /*
              * Constructor
@@ -16,7 +18,7 @@ namespace TRexLib{
              * @i2c the I2C representing the bus on which the slave is connected.
              * @i2cAddress the address of the slave
              */
-            TRex(I2C * i2c, int i2cAddress);
+            MyTRex(I2C * i2c, int i2cAddress);
 
             /*
              * Read the status of the TRex controller.

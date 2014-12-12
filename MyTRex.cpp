@@ -1,4 +1,5 @@
 #include "MyTRex.h"
+#include "MyStatusDataPacket.h"
 
 namespace TRexLib{
 
@@ -14,7 +15,7 @@ namespace TRexLib{
         //this->i2cAddress = i2cAddress;
     }
 
-    MyTrex::readStatus(MyStatusDataPacket * status)
+    bool MyTRex::readStatus(MyStatusDataPacket * status)
     {
         char data[StatusDataPacket::SIZE_STATUS_DATA_PACKET];
         
@@ -25,21 +26,17 @@ namespace TRexLib{
                 wait_ms(100);
                 i2c.read(i2cAddress,data,StatusDataPacket::SIZE_STATUS_DATA_PACKET);
                 status->fromTRex(data);
-            }
-            if(data[0]==0x0F){
-                return true;
-            }
-            else{
-                return false;
+                if(data[0]==0x0F){
+                    return true;
+                }
             }
         }
         else{
             return true;
         }
-        
-
     }
-    writeCommand(CommandDataPacket * command)
+
+    bool MyTRex::writeCommand(CommandDataPacket * command)
     {
         return false;
     }

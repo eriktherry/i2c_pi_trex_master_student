@@ -8,11 +8,10 @@
 namespace TRexLib{
 	class MyStatusDataPacket: public StatusDataPacket{
 
-        	 std::string toJSON(void) = 0;
-        	 void fromJSON(std::string json) = 0;
-        	 void toTRex(char * buffer) = 0;
-        	 void fromTRex(char * data) = 0;
-
+        	 std::string toJSON(void);
+        	 void fromJSON(std::string json);
+        	 void toTRex(char * buffer);
+        	 void fromTRex(char * data);
 	};
-
 }
+#endif
