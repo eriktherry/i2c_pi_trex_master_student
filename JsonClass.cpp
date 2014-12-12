@@ -1,6 +1,6 @@
 #include "JsonClass.h"
 
-#include <string.h>
+#include <string>
 
 void eindeBuildData(char data[],char eindebuilddata[]){
 
@@ -10,7 +10,7 @@ void eindeBuildData(char data[],char eindebuilddata[]){
 
 void buildData(char datatype[],char datawaarde[],char builddata[]){
 
-    sprintf(builddata,"%s:%s",datatype,datawaarde);
+    sprintf(builddata,"\"%s\":\"%s\"",datatype,datawaarde);
 
 }
 
@@ -32,4 +32,27 @@ void piData(char macaddress[],char cpu_temp[],char free_memory[],char piData){
     appendData(data4,data3,data5);
 
     eindeBuildData(data5,piData);
+}
+
+void deBuildEindeData(char data[],char debuildata[]){
+
+    sscanf(data,"{%s}",debuilddata);
+}
+
+int deAppendData(char * data,string deappenddata[]){
+
+    char* s;
+    int i=0;
+    s= strtok(data,",");
+    while(s != NULL){
+        deappenddata[i]=s;
+        s=strtok(NULL,",");
+        i++;
+    }
+    return i;
+}
+
+void deBuildData(char data[],char datatype[],char datawaarde[]){
+
+    sscanf(data,"\"%s\":\"%s\"",datatype,datawaarde);
 }
