@@ -15,7 +15,7 @@ namespace TRexLib{
     	
     	this->setStartByte(data[0]);
     	this->setErrorFlags(data[1]);
-    	this->setBatteryVoltage(data[2]*256 + data[3]);
+    	this->setBatteryVoltage((data[StatusDataPacketFields::STATUS_BATTERY_MSB]*256 + data[StatusDataPacketFields::STATUS_BATTERY_LSB])/100.0;
     	this->setMotorCurrent(Side side, double current);
     	this->setEncoderCount(Side side, int count);
     	this->setAcceleroMeter(AcceleroMeter accelero);
@@ -33,3 +33,4 @@ namespace TRexLib{
     
 
 }
+#endif

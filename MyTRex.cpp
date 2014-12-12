@@ -16,7 +16,28 @@ namespace TRexLib{
 
     MyTrex::readStatus(MyStatusDataPacket * status)
     {
-        return false;
+        char data[StatusDataPacket::SIZE_STATUS_DATA_PACKET];
+        
+        i2c.read(i2cAddress,data,StatusDataPacket::SIZE_STATUS_DATA_PACKET);
+        status->fromTRex(data);
+        if(data[0]!=0x0F){
+            for(int i=0;i=5;i++){
+                wait_ms(100);
+                i2c.read(i2cAddress,data,StatusDataPacket::SIZE_STATUS_DATA_PACKET);
+                status->fromTRex(data);
+            }
+            if(data[0]==0x0F){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        else{
+            return true;
+        }
+        
+
     }
     writeCommand(CommandDataPacket * command)
     {
