@@ -39,6 +39,14 @@ namespace TRexLib{
 
     bool MyTRex::writeCommand(CommandDataPacket * command)
     {
-        return false;
+        char buffer[]={"testCommand"};
+        int i=0;
+        i=i2c->write(i2cAddress,buffer,sizeof(buffer));
+        if(i==0){
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 }
