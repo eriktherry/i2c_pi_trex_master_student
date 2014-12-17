@@ -34,6 +34,29 @@ void piData(char macaddress[],char cpu_temp[],char free_memory[],char piData){
     eindeBuildData(data5,piData);
 }
 
+void trexData(char battery_voltage[], char motor_current_left[], char motor_current_right[], char encoder_count_left[], char encoder_count_right[], char accelero[], char impact[], char trexData[]){
+
+    char dataBat, dataML, dataMR, dataEL, dataER, dataAc, dataIm, data1; 
+
+    buildData("Batttery_voltage",battery_voltage,dataBat);
+    buildData("Motor_current_left",motor_current_left,dataML);
+    buildData("Motor_current_right",motor_current_right,dataMR);
+    buildData("Encoder_count_left",encoder_count_left,dataEL);
+    buildData("Encoder_count_right",encoder_count_right,dataER);
+    buildData("Accelero",accelero,dataAc);
+    buildData("Impact",impact,dataIm);
+
+    appendData(dataBat,dataMl,data1);
+    appendData(data1,dataMR,data1);
+    appendData(data1,dataEL,data1);
+    appendData(data1,dataER,data1);
+    appendData(data1,dataAc,data1);
+    appendData(data1,dataIm,data1);
+
+    eindeBuildData(data1,trexData);
+
+}
+
 void deBuildEindeData(char data[],char debuildata[]){
 
     sscanf(data,"{%s}",debuilddata);
