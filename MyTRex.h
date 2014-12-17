@@ -27,7 +27,7 @@ namespace TRexLib{
              *
              * @return true if the read action was successful
              */
-            bool readStatus(MyStatusDataPacket * status);
+            bool readStatus(StatusDataPacket * status);
 
             /*
              * Write command to the TRex controller.
