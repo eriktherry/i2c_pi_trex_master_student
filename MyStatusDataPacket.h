@@ -10,7 +10,7 @@ namespace TRexLib{
 
         	 std::string toJSON(void);
         	 void fromJSON(std::string json);
-        	 void toTRex(char * buffer);
+        	 void toTRex();
         	 void fromTRex(char * data);
 	};
 }
