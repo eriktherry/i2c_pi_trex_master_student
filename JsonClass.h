@@ -1,4 +1,4 @@
-#include <string>
+#include <string.h>
 
 //hier maak je de "{data}"
 void eindeBuildData(char data[],char eindebuilddata[]);
@@ -20,7 +20,7 @@ void deBuildEindeData(char data[],char debuildata[]);
 
 //je krijgt een int terug van hoeveel data types in de verstuurddata zit.
 //Dit wordt in een array string gestoken. 
-int deAppendData(char * data,string deappenddata[]);
+int deAppendData(char * data,std::string deappenddata[]);
 
 //de datatype en datawaarde onderscheiden.
 void deBuildData(char data[],char datatype[],char datawaarde[]);

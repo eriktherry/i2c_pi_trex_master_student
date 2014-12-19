@@ -1,6 +1,8 @@
 #include "JsonClass.h"
 
-#include <string>
+#include <string.h>
+
+
 
 void eindeBuildData(char data[],char eindebuilddata[]){
 
@@ -22,7 +24,7 @@ void appendData(char builddata1[], char builddata2[],char appenddata[]){
 
 void piData(char macaddress[],char cpu_temp[],char free_memory[],char piData){
 
-    char data1,data2,data3,data4,data5;
+    char * data1,data2,data3,data4,data5;
 
     buildData("macaddress",macaddress,data1);
     buildData("cpu_temp",cpu_temp,data2);
@@ -36,7 +38,7 @@ void piData(char macaddress[],char cpu_temp[],char free_memory[],char piData){
 
 void trexData(char battery_voltage[], char motor_current_left[], char motor_current_right[], char encoder_count_left[], char encoder_count_right[], char accelero[], char impact[], char trexData[]){
 
-    char dataBat, dataML, dataMR, dataEL, dataER, dataAc, dataIm, data1; 
+    char * dataBat, dataML, dataMR, dataEL, dataER, dataAc, dataIm, data1; 
 
     buildData("Batttery_voltage",battery_voltage,dataBat);
     buildData("Motor_current_left",motor_current_left,dataML);
@@ -62,7 +64,7 @@ void deBuildEindeData(char data[],char debuildata[]){
     sscanf(data,"{%s}",debuilddata);
 }
 
-int deAppendData(char * data,string deappenddata[]){
+int deAppendData(char * data,std::string deappenddata[]){
 
     char* s;
     int i=0;

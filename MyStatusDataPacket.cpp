@@ -1,4 +1,5 @@
 #include "MyStatusDataPacket.h"
+#include "StatusDataPacket.h"
 #include "DataPacket.h"
 #include "Side.h"
 #include "AcceleroMeter.h"
@@ -7,7 +8,7 @@
 
 namespace TRexLib{
 
-	void MyStatusDataPacket::toTRex(){
+	void MyStatusDataPacket::toTRex(char * buffer){
 
 	}
 
@@ -37,7 +38,7 @@ namespace TRexLib{
 
 	std::string MyStatusDataPacket::toJSON(void){		//haald informatie uit *data en steekt ze json string
 
-        JsonClass json;
+        JsonClass json; 
         char * data;
 
         json.trexData(this->getBatteryVoltage(), this->getMottorCurrent(LEFT), this->getMottorCurrent(RIGHT), this->getEncoderCount(LEFT), this->getEncoderCount(RIGHT), this->getAcceleroMeter(), this->getImpact(),data);
@@ -47,7 +48,6 @@ namespace TRexLib{
 	}
 
     void MyStatusDataPacket::fromJSON(std::string json){
-    	return 0;
     }
     
 
