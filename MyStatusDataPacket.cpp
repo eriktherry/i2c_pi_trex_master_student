@@ -14,24 +14,24 @@ namespace TRexLib{
 
     void MyStatusDataPacket::fromTRex(char * data){		//haald de informatie op en steekt ze in char *data
     	
-    	this->setStartByte(data[StatusDataPacketFields::STATUS_START]);
-    	this->setErrorFlags(data[StatusDataPacketFields::STATUS_ERROR]);
-    	this->setBatteryVoltage((data[StatusDataPacketFields::STATUS_BATTERY_MSB]*256 + data[StatusDataPacketFields::STATUS_BATTERY_LSB])/100.0;
-    	this->setMotorCurrent(Side::LEFT, (data[StatusDataPacketFields::STATUS_LEFT_MOTOR_CURRENT_MSB] * 256 + data[StatusDataPacketFields::STATUS_LEFT_MOTOR_CURRENT_LSB])/1000.0);
-        this->setMotorCurrent(Side::RIGHT, (data[StatusDataPacketFields::STATUS_RIGHT_MOTOR_CURRENT_MSB] * 256 + data[StatusDataPacketFields::STATUS_RIGHT_MOTOR_CURRENT_LSB])/1000.0);
-    	this->setEncoderCount(Side::LEFT, (data[StatusDataPacketFields::STATUS_LEFT_ENCODER_COUNT_MSB] * 256 + data[StatusDataPacketFields::STATUS_LEFT_ENCODER_COUNT_LSB]));
-        this->setEncoderCount(Side::RIGHT, (data[StatusDataPacketFields::STATUS_RIGHT_ENCODER_COUNT_MSB] * 256 + data[StatusDataPacketFields::STATUS_RIGHT_ENCODER_COUNT_LSB]));
+    	this->setStartByte(data[STATUS_START]);
+    	this->setErrorFlags(data[STATUS_ERROR]);
+    	this->setBatteryVoltage((data[STATUS_BATTERY_MSB]*256 + data[STATUS_BATTERY_LSB])/100.0);
+    	this->setMotorCurrent(LEFT, (data[STATUS_LEFT_MOTOR_CURRENT_MSB] * 256 + data[STATUS_LEFT_MOTOR_CURRENT_LSB])/1000.0);
+        this->setMotorCurrent(RIGHT, (data[STATUS_RIGHT_MOTOR_CURRENT_MSB] * 256 + data[STATUS_RIGHT_MOTOR_CURRENT_LSB])/1000.0);
+    	this->setEncoderCount(LEFT, (data[STATUS_LEFT_ENCODER_COUNT_MSB] * 256 + data[STATUS_LEFT_ENCODER_COUNT_LSB]));
+        this->setEncoderCount(RIGHT, (data[STATUS_RIGHT_ENCODER_COUNT_MSB] * 256 + data[STATUS_RIGHT_ENCODER_COUNT_LSB]));
 
     	AcceleroMeter accelero;
-        accelero.x=((data[StatusDataPacketFields::STATUS_ACCELEROMETER_X_MSB] * 256 + data[StatusDataPacketFields::STATUS_ACCELEROMETER_X_LSB]));
-        accelero.y=((data[StatusDataPacketFields::STATUS_ACCELEROMETER_Y_MSB] * 256 + data[StatusDataPacketFields::STATUS_ACCELEROMETER_Y_LSB]));
-        accelero.z=((data[StatusDataPacketFields::STATUS_ACCELEROMETER_Z_MSB] * 256 + data[StatusDataPacketFields::STATUS_ACCELEROMETER_Z_LSB]));
+        accelero.x=((data[STATUS_ACCELEROMETER_X_MSB] * 256 + data[STATUS_ACCELEROMETER_X_LSB]));
+        accelero.y=((data[STATUS_ACCELEROMETER_Y_MSB] * 256 + data[STATUS_ACCELEROMETER_Y_LSB]));
+        accelero.z=((data[STATUS_ACCELEROMETER_Z_MSB] * 256 + data[STATUS_ACCELEROMETER_Z_LSB]));
         this->setAcceleroMeter(accelero);
 
         Impact impact;
-        impact.x=((data[StatusDataPacketFields::STATUS_IMPACT_X_MSB] * 256 + data[StatusDataPacketFields::STATUS_IMPACT_X_LSB]));
-        impact.y=((data[StatusDataPacketFields::STATUS_IMPACT_Y_MSB] * 256 + data[StatusDataPacketFields::STATUS_IMPACT_Y_LSB]));
-        impact.z=((data[StatusDataPacketFields::STATUS_IMPACT_Z_MSB] * 256 + data[StatusDataPacketFields::STATUS_IMPACT_Z_LSB]));
+        impact.x=((data[STATUS_IMPACT_X_MSB] * 256 + data[STATUS_IMPACT_X_LSB]));
+        impact.y=((data[STATUS_IMPACT_Y_MSB] * 256 + data[STATUS_IMPACT_Y_LSB]));
+        impact.z=((data[STATUS_IMPACT_Z_MSB] * 256 + data[STATUS_IMPACT_Z_LSB]));
     	this->setImpact(impact);
 
 	}

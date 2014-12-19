@@ -1,4 +1,5 @@
 #include "MyTRex.h"
+#include "StatusDataPacket.h"
 #include "MyStatusDataPacket.h"
 #include "wait.h"
 
