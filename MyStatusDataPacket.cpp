@@ -41,7 +41,7 @@ namespace TRexLib{
         JsonClass json; 
         char * data;
 
-        json.trexData(this->getBatteryVoltage(), this->getMottorCurrent(LEFT), this->getMottorCurrent(RIGHT), this->getEncoderCount(LEFT), this->getEncoderCount(RIGHT), this->getAcceleroMeter(), this->getImpact(),data);
+        json.trexData(this->getBatteryVoltage(), this->getMotorCurrent(LEFT), this->getMotorCurrent(RIGHT), this->getEncoderCount(LEFT), this->getEncoderCount(RIGHT), this->getAcceleroMeter(), this->getImpact(),data);
 
         return data;
 
