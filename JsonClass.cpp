@@ -1,6 +1,7 @@
 #include "JsonClass.h"
 
 #include <string.h>
+#include <stdio.h>
 
 
 namespace TRexLib{
@@ -28,9 +29,9 @@ namespace TRexLib{
 
     }
 
-    void JsonClass::piData(char macaddress[],char cpu_temp[],char free_memory[],char piData){
+    void JsonClass::piData(char macaddress[],char cpu_temp[],char free_memory[],char piData[]){
 
-        char * data1,data2,data3,data4,data5;
+        char * data1,*data2,*data3,*data4,*data5;
 
         buildData("macaddress",macaddress,data1);
         buildData("cpu_temp",cpu_temp,data2);
@@ -44,7 +45,7 @@ namespace TRexLib{
 
     void JsonClass::trexData(char battery_voltage[], char motor_current_left[], char motor_current_right[], char encoder_count_left[], char encoder_count_right[], char accelero[], char impact[], char trexData[]){
 
-        char * dataBat, dataML, dataMR, dataEL, dataER, dataAc, dataIm, data1; 
+        char * dataBat, *dataML, *dataMR, *dataEL, *dataER, *dataAc, *dataIm, *data1; 
 
         buildData("Batttery_voltage",battery_voltage,dataBat);
         buildData("Motor_current_left",motor_current_left,dataML);
@@ -54,7 +55,7 @@ namespace TRexLib{
         buildData("Accelero",accelero,dataAc);
         buildData("Impact",impact,dataIm);
 
-        appendData(dataBat,dataMl,data1);
+        appendData(dataBat,dataML,data1);
         appendData(data1,dataMR,data1);
         appendData(data1,dataEL,data1);
         appendData(data1,dataER,data1);
@@ -65,11 +66,11 @@ namespace TRexLib{
 
     }
 
-    void JsonClass::deBuildEindeData(char data[],char debuildata[]){
+    void JsonClass::deBuildEindeData(char data[],char debuilddata[]){
 
         sscanf(data,"{%s}",debuilddata);
     }
-
+/*
     int JsonClass::deAppendData(char * data,std::string deappenddata[]){
 
         char* s;
@@ -82,7 +83,7 @@ namespace TRexLib{
         }
         return i;
     }
-
+*/
     void JsonClass::deBuildData(char data[],char datatype[],char datawaarde[]){
 
         sscanf(data,"\"%s\":\"%s\"",datatype,datawaarde);
