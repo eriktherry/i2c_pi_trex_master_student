@@ -10,25 +10,28 @@ namespace TRexLib{
 
     }
 
+    //de data in "{ }" zetten.
     void JsonClass::eindeBuildData(char data[],char eindebuilddata[]){
 
         sprintf(eindebuilddata,"{%s}",data);
     }
 
     
-
+    //de parameter en de waarde samenvoegen
     void JsonClass::buildData(char datatype[],char datawaarde[],char builddata[]){
 
         sprintf(builddata,"\"%s\":\"%s\"",datatype,datawaarde);
 
     }
 
+    //de extra parameters samenvoegen.
     void JsonClass::appendData(char builddata1[], char builddata2[],char appenddata[]){
 
         sprintf(appenddata,"%s,%s",builddata1,builddata2);
 
     }
 
+    //hardcoded 3 vaste parameters maken. met daarin de waarden die worden meegegeven met de functie.
     void JsonClass::piData(char macaddress[],char cpu_temp[],char free_memory[],char piData[]){
 
         char * data1,*data2,*data3,*data4,*data5;
@@ -43,6 +46,7 @@ namespace TRexLib{
         eindeBuildData(data5,piData);
     }
 
+    //hardcoded vaster parameters maken. De waarden worden meegegeven met de functie.
     void JsonClass::trexData(char battery_voltage[], char motor_current_left[], char motor_current_right[], char encoder_count_left[], char encoder_count_right[], char accelero[], char impact[], char trexData[]){
 
         char * dataBat, *dataML, *dataMR, *dataEL, *dataER, *dataAc, *dataIm, *data1; 
@@ -66,6 +70,7 @@ namespace TRexLib{
 
     }
 
+    //de "{ }" eruithalen van de Json data.
     void JsonClass::deBuildEindeData(char data[],char debuilddata[]){
 
         sscanf(data,"{%s}",debuilddata);
@@ -84,6 +89,7 @@ namespace TRexLib{
         return i;
     }
 */
+    //de parameter en waarden uitlezen;
     void JsonClass::deBuildData(char data[],char datatype[],char datawaarde[]){
 
         sscanf(data,"\"%s\":\"%s\"",datatype,datawaarde);

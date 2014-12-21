@@ -13,8 +13,7 @@ namespace TRexLib{
      */
     MyTRex::MyTRex(I2C* i2c, int i2cAddress):TRex(i2c,i2cAddress)
     {
-        //this->i2c = i2c;
-        //this->i2cAddress = i2cAddress;
+
     }
 
     bool MyTRex::readStatus(StatusDataPacket * status)
@@ -22,7 +21,10 @@ namespace TRexLib{
         int j=0;
         char data[StatusDataPacket::SIZE_STATUS_DATA_PACKET];
         
+        //De TRex gaan uitlezen en in data zetten.
         i2c->read(i2cAddress,data,StatusDataPacket::SIZE_STATUS_DATA_PACKET);
+
+        //data omvormen volgens MyStatusDataPacket.
         status->fromTRex(data);
         if(data[0]!=0x0F){
             //probeer 5 keer te herlezen met een wachttijd van 100ms. Indien dit niet lukt wordt er een false gereturned.

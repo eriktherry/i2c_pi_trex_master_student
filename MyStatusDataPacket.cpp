@@ -42,6 +42,7 @@ namespace TRexLib{
         JsonClass json; 
         char * data,*dataBat, *dataML, *dataMR, *dataEL, *dataER, *dataAc, *dataIm;
 
+        //alle data omvormen naar float of double.
         sprintf(dataBat,"%f",this->getBatteryVoltage());
         sprintf(dataML,"%f",this->getMotorCurrent(LEFT));
         sprintf(dataMR,"%f",this->getMotorCurrent(RIGHT));
